@@ -1,0 +1,37 @@
+{% if app.session is not null and app.session.started %}
+    {% for type in ['success', 'error', 'info', 'warning'] %}
+        {% for flash in app.session.flashbag.get(type) %}
+            {% if 'error' == type %}
+                {% set icon = 'times circle outline' %}
+                {% set customClass = 'error' %}
+            {% elseif 'info' == type %}
+                {% set icon = 'info circle' %}
+                {% set customClass = 'info' %}
+            {% elseif 'warning' == type %}
+                {% set icon = 'exclamation triangle' %}
+                {% set customClass = 'warning' %}
+            {% else %}
+                {% set icon = 'check circle outline' %}
+                {% set customClass = 'success' %}
+            {% endif %}
+            
+            <div class="custom-flash-message {{ customClass }}">
+                <i class="custom-flash-icon {{ icon }} icon"></i>
+                <div class="custom-flash-content">
+                    <div class="custom-flash-header">
+                        {% set header = 'sylius.ui.' ~ type %}
+                        {{ header|trans }}
+                    </div>
+                    <p class="custom-flash-text">
+                        {% if flash is iterable %}
+                            {{ flash.message|trans(flash.parameters, 'flashes') }}
+                        {% else %}
+                            {{ flash|trans({}, 'flashes') }}
+                        {% endif %}
+                    </p>
+                </div>
+                <i class="custom-flash-close close icon"></i>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
