@@ -1,0 +1,71 @@
+.custom-flash-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em;
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-bottom: 1.5em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.custom-flash-message:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.custom-flash-message.success {
+    background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.custom-flash-message.error {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.custom-flash-message.info {
+    background: linear-gradient(135deg, #17a2b8, #138496);
+}
+
+.custom-flash-message.warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+
+.custom-flash-icon {
+    font-size: 2em;
+    margin-right: 1em;
+}
+
+.custom-flash-close {
+    cursor: pointer;
+    font-size: 1.5em;
+    opacity: 0.7;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    transition: opacity 0.2s;
+}
+
+.custom-flash-close:hover {
+    opacity: 1;
+}
+
+.custom-flash-content {
+    flex-grow: 1;
+}
+
+.custom-flash-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+}
+
+.custom-flash-text {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.9);
+}
